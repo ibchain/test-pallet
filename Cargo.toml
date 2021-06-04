@@ -5,7 +5,7 @@ edition = '2018'
 homepage = 'https://mtdk1.github.io/study_group/'
 license = 'Unlicense'
 name = 'test-pallet'
-repository = 'https://github.com/ibchain/test-pallet'
+repository = 'https://github.com/ibchain/test-pallet    '
 version = '3.0.0'
 
 [package.metadata.docs.rs]
