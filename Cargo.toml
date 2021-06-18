@@ -4,34 +4,41 @@ description = 'FRAME pallet template for defining custom runtime logic.'
 edition = '2018'
 homepage = 'https://mtdk1.github.io/study_group/'
 license = 'Unlicense'
-name = 'test-pallet'
+name = 'ocw-demo'
 repository = 'https://github.com/ibchain/test-pallet    '
 version = '3.0.0'
 
 [package.metadata.docs.rs]
 targets = ['x86_64-unknown-linux-gnu']
 
-# alias "parity-scale-code" to "codec"
-[dependencies.codec]
-default-features = false
-features = ['derive']
-package = 'parity-scale-codec'
-version = '2.0.0'
 
 [dependencies]
-frame-support = { default-features = false, version = '3.0.0' }
-frame-system = { default-features = false, version = '3.0.0' }
+parking_lot = '0.11'
+parity-scale-codec = { version = '2.0', default-features = false, features = ['derive'] }
+# https://github.com/serde-rs/json/pull/606
+serde = { version = '1.0.100', default-features = false, features = ['derive'] }
+serde_json = { version = '1.0.45', default-features = false, features = ['alloc'] }
 
-[dev-dependencies]
-serde = { version = "1.0.119" }
-sp-core = { default-features = false, version = '3.0.0' }
-sp-io = { default-features = false, version = '3.0.0' }
-sp-runtime = { default-features = false, version = '3.0.0' }
+# Substrate packages
+frame-support = { version = '3.0', default-features = false }
+frame-system = { version = '3.0', default-features = false }
+sp-arithmetic = { version = '3.0', default-features = false }
+sp-core = { version = '3.0', default-features = false }
+sp-io = { version = '3.0', default-features = false }
+sp-runtime = { version = '3.0', default-features = false }
+sp-std = { version = '3.0', default-features = false }
+sp-keystore = { version = '0.9', optional = true }
 
 [features]
 default = ['std']
 std = [
-    'codec/std',
-    'frame-support/std',
-    'frame-system/std',
+ 	'frame-support/std',
+	'frame-system/std',
+	'parity-scale-codec/std',
+	'sp-keystore',
+	'sp-io/std',
+	'sp-runtime/std',
+	'sp-std/std',
+	'sp-arithmetic/std',
+	'sp-keystore/std',
 ]
